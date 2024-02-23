@@ -57,6 +57,13 @@ function Home() {
   const handleNavigate = (link) => {
     window.open(link, "_blank").focus();
   };
+  const handleFileInput = (e) => {
+    const fileList = e.target.files;
+    const fileArray = Array.from(fileList);
+    if (fileList.length > 0) {
+      setFiles(fileArray);
+    }
+  };
   return (
     <>
       <div
@@ -65,6 +72,23 @@ function Home() {
         onDrop={handleDrop}
         style={{ maxHeight: "100vh" }}
       >
+        <input
+          hidden
+          accept="*"
+          type="file"
+          multiple="multiple"
+          onDragEndCapture={handleFileInput}
+          className="z-50"
+
+        />
+        <input
+          hidden
+          type="file"
+          directory=""
+          webkitdirectory=""
+          className="z-50"
+          onDragEndCapture={handleFileInput}
+        />
         {/* This components contain fire button which delete the session */}
         <DeleteUserId />
 
@@ -79,7 +103,7 @@ function Home() {
         {/* This is the cool ring type animation which is shown when any file is selected */}
         <AnimateStyle files={files} />
         {/** Component to select files */}
-        <FilesInput />
+        <FilesInput setToasterData={setToasterData}/>
 
         {/* it is hidden by default, it appears as soon as one selects a file */}
         {files && files.length > 0 && (

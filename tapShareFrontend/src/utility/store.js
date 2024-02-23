@@ -2,6 +2,7 @@ import { create } from "zustand";
 import axios from "axios";
 import { baseUrl } from "../config";
 import generateUserId from "./generateUserId";
+import JSZip from "jszip";
 
 export const useStore = create((set, get) => ({
   loading: false,
@@ -11,6 +12,13 @@ export const useStore = create((set, get) => ({
   emailData: {
     value: "",
     type: "",
+  },
+  filesData: [],
+  zipping: false,
+  removeFileByName: (fileName) => {
+    set((state) => ({
+      files: state.files.filter((file) => file.name !== fileName),
+    }));
   },
   setEmailData: (email) =>
     set((set) => ({
@@ -33,8 +41,64 @@ export const useStore = create((set, get) => ({
     set(() => ({
       receiverEmail: email,
     })),
-  setFiles: (files) => set({ files }),
+  setFiles: async (newFiles, setToasterData) => {
+    if (!newFiles.length) return set({ files: [] });
+
+    const existingFiles = get().files;
+
+    const uniqueFiles = newFiles.filter(
+      (newFile) =>
+        !existingFiles.some(
+          (existingFile) => existingFile.name === newFile.name
+        )
+    );
+    const file = [...existingFiles, ...uniqueFiles];
+    set({ files: file });
+    try {
+      set({ zipping: true });
+      const zippedFiles = await Promise.all(
+        file.map(async (file) => {
+          const zip = new JSZip();
+          if (file.type === "") {
+            const zippedBlob = await zip.generateAsync({ type: "blob" });
+            const zippedFile = new File([zippedBlob], file.name + ".zip");
+            return zippedFile;
+          } else if (file.size > 1 * 1024 * 1024) {
+            zip.file(file.name, file);
+            const zippedBlob = await zip.generateAsync({ type: "blob" });
+            const zippedFile = new File([zippedBlob], file.name + ".zip");
+            return zippedFile;
+          } else {
+            return file;
+          }
+        })
+      );
+
+      set({ filesData: zippedFiles });
+    } catch (error) {
+      console.error("Error handling files:", error);
+      setToasterData({
+        open: true,
+        message: "Error handling files",
+        severity: "error",
+      });
+    } finally {
+      set({ zipping: false });
+      set({ loading: false });
+    }
+  },
   send_file: async (file, setToasterData, setFiles, navigate) => {
+    const files = get().files;
+    const filesData = get().filesData;
+    if (files.length !== filesData.length) {
+      set({ loading: true });
+      return setToasterData({
+        open: true,
+        message: "file is not zipped yet please wait",
+        severity: "info",
+      });
+    }
+
     if (
       localStorage.getItem("userId") == null ||
       localStorage.getItem("userId") == "" ||

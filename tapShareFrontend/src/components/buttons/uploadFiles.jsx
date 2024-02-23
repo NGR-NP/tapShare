@@ -7,15 +7,16 @@ export default function UploadFiles({ setToasterData }) {
   // store calls
   const navigate = useNavigate();
   const send_file = useStore((state) => state.send_file);
-  const files = useStore((state) => state.files);
+  const filesData = useStore((state) => state.filesData);
   const loading = useStore((state) => state.loading);
+  const zipping = useStore((state) => state.zipping);
   const setReceiverEmail = useStore((state) => state.setReceiverEmail);
   const setFiles = useStore((state) => state.setFiles);
   const emailData = useStore((state) => state.emailData);
   const setEmailData = useStore((state) => state.setEmailData);
   const validEmailToAdd = useStore((state) => state.validEmailToAdd);
   const receiverEmail = useStore((state) => state.receiverEmail);
-
+  // console.log(filesData);
   // handles email adding to the array
   const handleEmailAddClick = (data) => {
     if (data?.value && !validEmailToAdd) {
@@ -47,13 +48,22 @@ export default function UploadFiles({ setToasterData }) {
     }
     setReceiverEmail(data);
     setEmailData({ type: "", value: "" });
-    send_file(files, setToasterData, setFiles, navigate);
+    uploadFile();
   };
+
+  function uploadFile() {
+    send_file(filesData, setToasterData, setFiles, navigate);
+  }
+
   return (
     <>
       {loading ? (
         <div className="w-fit h-fit mt-4">
-          <UploadingAnimation />
+          {!zipping ? (
+            <UploadingAnimation />
+          ) : (
+            <UploadingAnimation name="zipping" />
+          )}
         </div>
       ) : (
         <>
@@ -64,12 +74,10 @@ export default function UploadFiles({ setToasterData }) {
                 <button
                   role="button"
                   className="bg-blue-500 p-0 text-gray-50 rounded-full text-center mt-2 font-semibold hover:bg-blue-600 ease-in transition-all duration-300 hover:scale-110 py-2 px-5"
-                  onClick={() =>
-                    send_file(files, setToasterData, setFiles, navigate)
-                  }
-                  title="Generate Link"
+                  onClick={uploadFile}
+                  title={zipping ? "file is too large please wait while zipping" : "Generate Link"}
                 >
-                  Generate Link
+                  {zipping ? "zipping..." : "Generate Link"}
                 </button>
               </>
             )}
@@ -82,9 +90,9 @@ export default function UploadFiles({ setToasterData }) {
                 onClick={() => {
                   handleEmailAddClick(emailData);
                 }}
-                title="Send files"
+                title={zipping ? "file is too large please wait while zipping" : "send email"}
               >
-                Send Now
+                {zipping ? "zipping..." : "Send Now"}
               </button>
             </>
           )}

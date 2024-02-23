@@ -1,7 +1,7 @@
 import { IconButton } from "@mui/material/";
 import { useStore } from "../../utility/store";
 
-export default function FilesInput() {
+export default function FilesInput({ setToasterData }) {
   const progress = useStore((state) => state.progress);
   const loading = useStore((state) => state.loading);
   const files = useStore((state) => state.files);
@@ -10,7 +10,7 @@ export default function FilesInput() {
     const fileList = e.target.files;
     const fileArray = Array.from(fileList);
     if (fileList.length > 0) {
-      setFiles(fileArray);
+      setFiles(fileArray, setToasterData);
     }
   };
   return (
@@ -28,6 +28,15 @@ export default function FilesInput() {
           accept="*"
           type="file"
           multiple="multiple"
+          onChange={handleFileInput}
+          onDragEndCapture={handleFileInput}
+        />
+        <input
+          hidden
+          type="file"
+          directory=""
+          webkitdirectory=""
+          onDragEndCapture={handleFileInput}
           onChange={handleFileInput}
         />
 
