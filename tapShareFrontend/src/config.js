@@ -1,9 +1,8 @@
-// export const baseUrl = "https://tapshare.dpkailashcollab.com/";
+export const baseUrl = "https://tapshare.dpkailashcollab.com/";
 
 //for development use uncomment the following line
 
 // export const baseUrl = "http://localhost:1337/";
-export const baseUrl = "http://tapshare-g3qs.onrender.com/";
 
 
 

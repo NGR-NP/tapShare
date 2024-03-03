@@ -8,6 +8,9 @@ const fs = require("fs");
 const File = require("./model/fileModel");
 
 app.set("view engine", "ejs");
+app.set('views', path.join(__dirname, 'views'));
+app.use(express.static('public'));
+
 //test
 //CORS config
 const corsOptions = {
@@ -15,7 +18,7 @@ const corsOptions = {
     "https://tapshare.xyz",
     "http://127.0.0.1:5173",
     "http://localhost:5173",
-    "https://bucolic-piroshki-04f0ec.netlify.app"
+    // "https://bucolic-piroshki-04f0ec.netlify.app"
   ],
   // origin: "http://127.0.0.1:5173",
   // credentials: true, //access-control-allow-credentials:true
