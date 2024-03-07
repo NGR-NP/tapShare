@@ -19,7 +19,7 @@ const sendEmail = async (options) => {
     });
 
     const mailOptions = {
-      from: "tapshare<tapsharesite@gmail.com>",
+      from: `tapshare<${EMAIL}>`,
       to: options.to,
       subject: options.subject,
       text: options.text,
