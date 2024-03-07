@@ -6,370 +6,115 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tapshare File Shared</title>
     <style>
-        *,
-        ::before,
-        ::after {
-            box-sizing: border-box;
-            border-width: 0;
-            border-style: solid;
-            border-color: #e5e7eb;
+        /* sm start */
+        @media (min-width: 640px) {
+            .sm-py-10 {
+                padding-top: 2.5rem;
+                padding-bottom: 2.5rem;
+            }
+
+            .sm-rounded-xl {
+                border-radius: 0.75rem;
+            }
+
+            .sm-p-2 {
+                padding-top: 0.5rem;
+                padding-bottom: 0.5rem;
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
+            }
+
+            .sm-rounded-t-xl {
+                border-top-left-radius: 0.75rem;
+                border-top-right-radius: 0.75rem;
+            }
+
+            .sm-n-bottom-10 {
+                bottom: -2.5rem;
+            }
+
+            .sm-left-1-2 {
+                left: 50%;
+            }
+
+            .sm-w-8-12 {
+                width: 66.666667%;
+            }
+
         }
 
-        ::before,
-        ::after {
-            --tw-content: '';
+        /* sm end */
+
+
+
+        /* md start */
+        @media (min-width: 768px) {
+            .md-n-bottom-20 {
+                bottom: -5rem;
+            }
+
+            .md-w-7-12 {
+                width: 58.333333%;
+            }
         }
 
+        /* md end */
 
-        html,
-        :host {
-            line-height: 1.5;
-            -webkit-text-size-adjust: 100%;
-            -moz-tab-size: 4;
-            tab-size: 4;
-            font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-            font-feature-settings: normal;
-            font-variation-settings: normal;
-            -webkit-tap-highlight-color: transparent;
+        .round-b-4rem {
+            border-bottom-right-radius: 4rem;
+            border-bottom-left-radius: 4rem;
         }
 
-
-
-        body {
-            margin: 0;
-            line-height: inherit;
+        .c-slate-50 {
+            color: rgb(248 250 252/1)
         }
 
-
-
-        hr {
-            height: 0;
-            color: inherit;
-            border-top-width: 1px;
+        .b-light-blue {
+            background-color: rgb(70 84 126 /1)
         }
 
-
-        abbr:where([title]) {
-            text-decoration: underline dotted;
+        .w-11-12 {
+            width: 91.666667%;
         }
 
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-size: inherit;
-            font-weight: inherit;
+        .blue-bg {
+            background-color: rgb(0 123 255 / 1);
         }
 
-
-        a {
-            color: inherit;
-            text-decoration: inherit;
+        .c-slate-300 {
+            color: rgb(203 213 225 / 1)
         }
 
-
-        b,
-        strong {
-            font-weight: bolder;
+        .c-slate-500 {
+            color: rgb(100 116 139 / 1)
         }
 
-
-
-        code,
-        kbd,
-        samp,
-        pre {
-            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-            font-feature-settings: normal;
-            font-variation-settings: normal;
-            font-size: 1em;
+        .c-slate-100 {
+            color: rgb(241 245 249 /1)
         }
 
-
-        small {
-            font-size: 80%;
+        .c-blue-400 {
+            color: rgb(96 165 250 / 1)
         }
 
-
-        sub,
-        sup {
-            font-size: 75%;
-            line-height: 0;
-            position: relative;
-            vertical-align: baseline;
+        .hover-scale-105:hover {
+            transform: scale(1.05);
         }
 
-        sub {
-            bottom: -0.25em;
+        .hover-rounded-full:hover {
+            border-radius: 9999px;
         }
 
-        sup {
-            top: -0.5em;
+        .hover-duration-700:hover {
+            transition-duration: 700ms;
         }
 
-
-        table {
-            text-indent: 0;
-            border-color: inherit;
-            border-collapse: collapse;
+        .c-slate-600 {
+            color: rgb(71 85 105 / 1);
         }
 
-
-        button,
-        input,
-        optgroup,
-        select,
-        textarea {
-            font-family: inherit;
-            font-feature-settings: inherit;
-            font-variation-settings: inherit;
-            font-size: 100%;
-            font-weight: inherit;
-            line-height: inherit;
-            color: inherit;
-            margin: 0;
-            padding: 0;
-        }
-
-
-        button,
-        select {
-            text-transform: none;
-        }
-
-
-        button,
-        [type='button'],
-        [type='reset'],
-        [type='submit'] {
-            -webkit-appearance: button;
-            appearance: button;
-            background-color: transparent;
-            background-image: none;
-        }
-
-        :-moz-focusring {
-            outline: auto;
-        }
-
-        :-moz-ui-invalid {
-            box-shadow: none;
-        }
-
-        progress {
-            vertical-align: baseline;
-        }
-
-        ::-webkit-inner-spin-button,
-        ::-webkit-outer-spin-button {
-            height: auto;
-        }
-
-        [type='search'] {
-            -webkit-appearance: textfield;
-            appearance: textfield;
-            outline-offset: -2px;
-        }
-
-        ::-webkit-search-decoration {
-            -webkit-appearance: none;
-        }
-
-        ::-webkit-file-upload-button {
-            -webkit-appearance: button;
-            font: inherit;
-        }
-
-        summary {
-            display: list-item;
-        }
-
-        blockquote,
-        dl,
-        dd,
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6,
-        hr,
-        figure,
-        p,
-        pre {
-            margin: 0;
-        }
-
-        fieldset {
-            margin: 0;
-            padding: 0;
-        }
-
-        legend {
-            padding: 0;
-        }
-
-        ol,
-        ul,
-        menu {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        dialog {
-            padding: 0;
-        }
-
-
-        textarea {
-            resize: vertical;
-        }
-
-        input::placeholder,
-        textarea::placeholder {
-            opacity: 1;
-            color: #9ca3af;
-        }
-
-
-        button,
-        [role="button"] {
-            cursor: pointer;
-        }
-
-
-        :disabled {
-            cursor: default;
-        }
-
-
-        img,
-        svg,
-        video,
-        canvas,
-        audio,
-        iframe,
-        embed,
-        object {
-            display: block;
-        }
-
-
-        img,
-        video {
-            max-width: 100%;
-            height: auto;
-        }
-
-
-        [hidden] {
-            display: none;
-        }
-
-        *,
-        ::before,
-        ::after {
-            --tw-border-spacing-x: 0;
-            --tw-border-spacing-y: 0;
-            --tw-translate-x: 0;
-            --tw-translate-y: 0;
-            --tw-rotate: 0;
-            --tw-skew-x: 0;
-            --tw-skew-y: 0;
-            --tw-scale-x: 1;
-            --tw-scale-y: 1;
-            --tw-pan-x: ;
-            --tw-pan-y: ;
-            --tw-pinch-zoom: ;
-            --tw-scroll-snap-strictness: proximity;
-            --tw-gradient-from-position: ;
-            --tw-gradient-via-position: ;
-            --tw-gradient-to-position: ;
-            --tw-ordinal: ;
-            --tw-slashed-zero: ;
-            --tw-numeric-figure: ;
-            --tw-numeric-spacing: ;
-            --tw-numeric-fraction: ;
-            --tw-ring-inset: ;
-            --tw-ring-offset-width: 0px;
-            --tw-ring-offset-color: #fff;
-            --tw-ring-color: rgb(59 130 246 / 0.5);
-            --tw-ring-offset-shadow: 0 0 #0000;
-            --tw-ring-shadow: 0 0 #0000;
-            --tw-shadow: 0 0 #0000;
-            --tw-shadow-colored: 0 0 #0000;
-            --tw-blur: ;
-            --tw-brightness: ;
-            --tw-contrast: ;
-            --tw-grayscale: ;
-            --tw-hue-rotate: ;
-            --tw-invert: ;
-            --tw-saturate: ;
-            --tw-sepia: ;
-            --tw-drop-shadow: ;
-            --tw-backdrop-blur: ;
-            --tw-backdrop-brightness: ;
-            --tw-backdrop-contrast: ;
-            --tw-backdrop-grayscale: ;
-            --tw-backdrop-hue-rotate: ;
-            --tw-backdrop-invert: ;
-            --tw-backdrop-opacity: ;
-            --tw-backdrop-saturate: ;
-            --tw-backdrop-sepia:
-        }
-
-        ::backdrop {
-            --tw-border-spacing-x: 0;
-            --tw-border-spacing-y: 0;
-            --tw-translate-x: 0;
-            --tw-translate-y: 0;
-            --tw-rotate: 0;
-            --tw-skew-x: 0;
-            --tw-skew-y: 0;
-            --tw-scale-x: 1;
-            --tw-scale-y: 1;
-            --tw-pan-x: ;
-            --tw-pan-y: ;
-            --tw-pinch-zoom: ;
-            --tw-scroll-snap-strictness: proximity;
-            --tw-gradient-from-position: ;
-            --tw-gradient-via-position: ;
-            --tw-gradient-to-position: ;
-            --tw-ordinal: ;
-            --tw-slashed-zero: ;
-            --tw-numeric-figure: ;
-            --tw-numeric-spacing: ;
-            --tw-numeric-fraction: ;
-            --tw-ring-inset: ;
-            --tw-ring-offset-width: 0px;
-            --tw-ring-offset-color: #fff;
-            --tw-ring-color: rgb(59 130 246 / 0.5);
-            --tw-ring-offset-shadow: 0 0 #0000;
-            --tw-ring-shadow: 0 0 #0000;
-            --tw-shadow: 0 0 #0000;
-            --tw-shadow-colored: 0 0 #0000;
-            --tw-blur: ;
-            --tw-brightness: ;
-            --tw-contrast: ;
-            --tw-grayscale: ;
-            --tw-hue-rotate: ;
-            --tw-invert: ;
-            --tw-saturate: ;
-            --tw-sepia: ;
-            --tw-drop-shadow: ;
-            --tw-backdrop-blur: ;
-            --tw-backdrop-brightness: ;
-            --tw-backdrop-contrast: ;
-            --tw-backdrop-grayscale: ;
-            --tw-backdrop-hue-rotate: ;
-            --tw-backdrop-invert: ;
-            --tw-backdrop-opacity: ;
-            --tw-backdrop-saturate: ;
-            --tw-backdrop-sepia:
+        .hover-underline:hover {
+            text-decoration-line: underline;
         }
 
         .pointer-events-none {
@@ -382,10 +127,6 @@
 
         .absolute {
             position: absolute
-        }
-
-        .relative {
-            position: relative
         }
 
         .-bottom-10 {
@@ -445,10 +186,6 @@
             min-height: 100vh
         }
 
-        .w-11\/12 {
-            width: 91.666667%
-        }
-
         .w-24 {
             width: 6rem
         }
@@ -497,28 +234,12 @@
             border-radius: 0.375rem
         }
 
-        .rounded-b-\[4rem\] {
-            border-bottom-right-radius: 4rem;
-            border-bottom-left-radius: 4rem
-        }
-
         .border {
             border-width: 1px
         }
 
-        .bg-\[\#007bff\] {
-            --tw-bg-opacity: 1;
-            background-color: rgb(0 123 255 / var(--tw-bg-opacity))
-        }
-
-        .bg-\[\#435897\] {
-            --tw-bg-opacity: 1;
-            background-color: rgb(67 88 151 / var(--tw-bg-opacity))
-        }
-
-        .bg-slate-200 {
-            --tw-bg-opacity: 1;
-            background-color: rgb(226 232 240 / var(--tw-bg-opacity))
+        .p-0 {
+            padding: 0px
         }
 
         .px-1 {
@@ -615,47 +336,24 @@
             font-weight: 500
         }
 
-        .text-blue-400 {
-            --tw-text-opacity: 1;
-            color: rgb(96 165 250 / var(--tw-text-opacity))
+        .c-blue-200 {
+            color: rgb(191 219 254 / 1)
         }
 
-        .text-blue-500 {
-            --tw-text-opacity: 1;
-            color: rgb(59 130 246 / var(--tw-text-opacity))
-        }
-
-        .text-slate-200 {
-            --tw-text-opacity: 1;
-            color: rgb(226 232 240 / var(--tw-text-opacity))
-        }
-
-        .text-slate-50 {
-            --tw-text-opacity: 1;
-            color: rgb(248 250 252 / var(--tw-text-opacity))
-        }
-
-        .text-slate-500 {
-            --tw-text-opacity: 1;
-            color: rgb(100 116 139 / var(--tw-text-opacity))
-        }
-
-        .text-slate-600 {
-            --tw-text-opacity: 1;
-            color: rgb(71 85 105 / var(--tw-text-opacity))
-        }
-
-        .text-slate-800 {
-            --tw-text-opacity: 1;
-            color: rgb(30 41 59 / var(--tw-text-opacity))
+        .underline {
+            text-decoration-line: underline
         }
 
         .opacity-10 {
             opacity: 0.1
         }
 
-        .mix-blend-multiply {
-            mix-blend-mode: multiply
+        .mix-blend-overlay {
+            mix-blend-mode: overlay
+        }
+
+        .mix-blend-soft-light {
+            mix-blend-mode: soft-light
         }
 
         .transition-all {
@@ -668,236 +366,138 @@
             transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1)
         }
 
-        .hover\:scale-105:hover {
-            --tw-scale-x: 1.05;
-            --tw-scale-y: 1.05;
-            transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
+        .py-1 {
+            padding-top: 0.25rem;
+            padding-bottom: 0.25rem;
         }
 
-        .hover\:rounded-full:hover {
-            border-radius: 9999px
+        .gap-4 {
+            gap: 1rem;
         }
 
-        .hover\:underline:hover {
-            text-decoration-line: underline
+        .flex-wrap {
+            flex-wrap: wrap;
         }
 
-        .hover\:duration-700:hover {
-            transition-duration: 700ms
+        .flex-col {
+            flex-direction: column;
         }
-
-        @media (min-width: 640px) {
-            .sm\:-bottom-10 {
-                bottom: -2.5rem
-            }
-
-            .sm\:left-1\/2 {
-                left: 50%
-            }
-
-            .sm\:w-8\/12 {
-                width: 66.666667%
-            }
-
-            .sm\:rounded-xl {
-                border-radius: 0.75rem
-            }
-
-            .sm\:rounded-t-xl {
-                border-top-left-radius: 0.75rem;
-                border-top-right-radius: 0.75rem
-            }
-
-            .sm\:px-2 {
-                padding-left: 0.5rem;
-                padding-right: 0.5rem
-            }
-
-            .sm\:py-10 {
-                padding-top: 2.5rem;
-                padding-bottom: 2.5rem
-            }
-
-            .sm\:py-2 {
-                padding-top: 0.5rem;
-                padding-bottom: 0.5rem
-            }
-        }
-
-        @media (min-width: 768px) {
-            .md\:-bottom-20 {
-                bottom: -5rem
-            }
-
-            .md\:w-7\/12 {
-                width: 58.333333%
-            }
-        }
-
-        @media (prefers-color-scheme: dark) {
-            .dark\:bg-\[\#46547e\] {
-                --tw-bg-opacity: 1;
-                background-color: rgb(70 84 126 / var(--tw-bg-opacity))
-            }
-
-            .dark\:bg-slate-700 {
-                --tw-bg-opacity: 1;
-                background-color: rgb(51 65 85 / var(--tw-bg-opacity))
-            }
-
-            .dark\:text-blue-200 {
-                --tw-text-opacity: 1;
-                color: rgb(191 219 254 / var(--tw-text-opacity))
-            }
-
-            .dark\:text-slate-100 {
-                --tw-text-opacity: 1;
-                color: rgb(241 245 249 / var(--tw-text-opacity))
-            }
-
-            .dark\:text-slate-300 {
-                --tw-text-opacity: 1;
-                color: rgb(203 213 225 / var(--tw-text-opacity))
-            }
-
-            .dark\:text-slate-50 {
-                --tw-text-opacity: 1;
-                color: rgb(248 250 252 / var(--tw-text-opacity))
-            }
-
-            .dark\:mix-blend-overlay {
-                mix-blend-mode: overlay
-            }
-
-            .dark\:mix-blend-soft-light {
-                mix-blend-mode: soft-light
-            }
+        .btn:hover{
+            background-color: rgb(1, 99, 203);
+            
         }
     </style>
 </head>
 
-<body class="p-o m-auto font-serif">
+<body class="m-auto p-0 font-serif">
     <table role="presentation" border="0" cellpadding="0"
-        class="flex min-h-screen w-full items-center justify-center sm:px-2 sm:py-2" cellspacing="0">
+        class="sm-p-2 flex min-h-screen w-full items-center justify-center" cellspacing="0">
         <tr>
             <td align="center">
-                <table role="presentation"
-                    class="w-full max-w-5xl bg-slate-200 text-slate-800 sm:rounded-xl dark:bg-slate-700 dark:text-slate-50"
-                    border="0" cellpadding="0" cellspacing="0">
+                <table role="presentation" class="sm-rounded-xl w-full max-w-5xl"
+                    style="background-color: rgb(51 65 85 / 1);  color: rgb(248 250 252 /1);" border="0" cellpadding="0"
+                    cellspacing="0">
                     <tr>
-                        <td
-                            class="rounded-b-[4rem] bg-[#435897] px-6 pb-14 pt-8 text-center sm:rounded-t-xl sm:py-10 dark:bg-[#46547e]">
+                        <td style="background-color: rgb(70 84 126 / 1); "
+                            class="round-b-4rem sm-rounded-t-xl sm-py-10 px-6 pb-14 pt-8 text-center">
                             <a target="_blank" href="https://tapshare.xyz"><img
                                     src="https://tapshare.xyz/tapShare-194x194.webp"
                                     class="mx-auto mb-4 w-24 rounded-full" /></a>
-                            <h1 class="m-0 font-serif text-4xl text-slate-200 dark:text-slate-50">Tapshare File Shared
-                            </h1>
+                            <h1 class="c-slate-50 m-0 font-serif text-4xl">Tapshare File Shared</h1>
                         </td>
                     </tr>
 
                     <tr class="px-4">
-                        <td class="relative w-full overflow-hidden px-10 py-8">
-                            <img class="m pointer-events-none absolute -bottom-10 -right-28 -z-0 w-11/12 rounded-full opacity-10 sm:-bottom-10 sm:left-1/2 sm:w-8/12 md:-bottom-20 md:w-7/12"
-                                src="https://tapshare.xyz/tapShare-194x194.webp" alt="" />
+                        <td class="w-full overflow-hidden px-10 py-8">
 
                             <p style="margin: 0;" class="pb-4 font-mono text-xl font-bold">Hello there</p>
 
                             <p style="margin: 0;" class="py-2 font-serif font-medium">We're pleased to inform you that
                                 files have been securely shared with you via <a href="https://www.tapshare.xyz/"
-                                    class="font-extrabold">Tapshare. Tapshare</a>, a hassle-free platform for seamless
+                                    class="font-extrabold c-blue-400" style="text-decoration-line: none;">Tapshare.
+                                    Tapshare</a>, a hassle-free platform for seamless
                                 file exchange. <br /><br />Your sender has utilized <a href="https://www.tapshare.xyz/"
-                                    class="font-extrabold">Tapshare</a> to transmit the following files, ensuring swift
+                                    class="font-extrabold c-blue-400">Tapshare</a> to transmit the following files,
+                                ensuring swift
                                 and secure delivery:</p>
-                            <div style="margin: 30px 0; display:flex; flex-wrap:wrap; gap: 1rem;">
+                            <div style="margin: 30px 0;" class="flex flex-wrap gap-4">
                                 <% for(var i=0; i < sharedFileLinks.length; i++) { %>
                                     <a href="<%- sharedFileLinks[i] %>" download="<%- sharedFileLinks[i] %>"
                                         title="<%= sharedFileLinks[i] %>"
-                                        class="inline-block rounded-md bg-[#007bff] px-3 py-2 text-slate-50">
-                                        Download File
+                                        class="blue-bg c-slate-50 inline-block rounded-md px-3 py-2 btn"> Download File </a>
+                                    <% } %>
+                            </div>
+
+                            <p style="margin: 0;" class="c-slate-300 py-2 font-serif">Please note that Tapshare only
+                                retains shared files for 24 hours from the time of upload. After this period, the files
+                                will no longer be accessible. We encourage you to download and save these files to your
+                                preferred location for future reference.</p>
+
+                            <p style="margin: 0;" class=" c-slate-300 py-3">For your convenience, we have
+                                also provided the direct download link:</p>
+                            <div style="margin: 10px 0;" class="flex flex-col gap-4">
+                                <% for(var i=0; i < sharedFileLinks.length; i++) { %>
+                                    <a style="color: #338ff1;" href="<%- sharedFileLinks[i] %>"> <%- sharedFileLinks[i]
+                                            %>
                                     </a>
                                     <% } %>
                             </div>
 
+                            <div style="margin: 0;" class="c-slate-100 py-2 font-serif">
+                                If you haven't already, we encourage you to explore Tapshare for yourself. It's a
+                                simple, secure, and reliable solution for sending large files over the internet. To
+                                learn more about Tapshare and its features, visit our website
+                                <a target="_blank" href="https://www.tapshare.xyz/"
+                                    class="c-blue-400 inline-flex items-end gap-1 text-xl font-extrabold">TapShare <img
+                                        src="https://tapshare.xyz/tapShare-194x194.webp"
+                                        class="hover-scale-105 hover-rounded-full hover-duration-700 w-6 rounded-md ease-in-out" />
+                                </a>&ensp; or check out our
+                                <a class="c-blue-400 inline-flex gap-2 font-bold" target="_blank"
+                                    href="https://github.com/maheshbasnet089/tapShare">GitHub repository. <img
+                                        src="https://github.com/fluidicon.png" alt="GITHUB" title="Github" height="24"
+                                        width="24" /> </a>
+                            </div>
 
-
-                            <p style="margin: 0;" class="py-2 font-serif dark:text-slate-300">Please note that Tapshare
-                                only retains shared files for 24 hours from the time of upload. After this period, the
-                                files will no longer be accessible. We encourage you to download and save these files to
-                                your preferred location for future reference.</p>
-
-                            <p style="margin: 0;" class="py-3 text-slate-500 dark:text-slate-300">For your convenience,
-                                we have also provided the direct download link:</p>
-
-                            <% for(var i=0; i < sharedFileLinks.length; i++) { %>
-                                <a style="margin: 20px 0;" href="<%- sharedFileLinks[i] %>">
-                                    <%- sharedFileLinks[i] %>
-                                </a>
-                                <% } %>
-
-                                    <div style="margin: 0;" class="py-2 font-serif dark:text-slate-100">
-                                        If you haven't already, we encourage you to explore Tapshare for yourself. It's
-                                        a
-                                        simple, secure, and reliable solution for sending large files over the internet.
-                                        To
-                                        learn more about Tapshare and its features, visit our website
-                                        <a target="_blank" href="https://www.tapshare.xyz/"
-                                            class="inline-flex items-end gap-1 text-xl font-extrabold text-blue-400">TapShare
-                                            <img src="https://tapshare.xyz/tapShare-194x194.webp"
-                                                class="w-6 rounded-md ease-in-out hover:scale-105 hover:rounded-full hover:duration-700" />
-                                        </a>&ensp; or check out our
-                                        <a class="inline-flex gap-2 font-bold text-blue-400" target="_blank"
-                                            href="https://github.com/maheshbasnet089/tapShare">GitHub repository. <img
-                                                src="https://github.com/fluidicon.png" alt="GITHUB" title="Github"
-                                                height="24" width="24" /> </a>
-                                    </div>
-
-                                    <br />
-                                    <p style="margin: 0;" class="z-10 text-center text-slate-600 dark:text-slate-100">
-                                        Thank you
-                                        for choosing Tapshare for your file sharing needs. Should you have any questions
-                                        or
-                                        require assistance, please don't hesitate to reach out to us.</p>
-                                    <div align="center" class="mt-3">
-                                        <table cellpadding="0" cellspacing="0">
-                                            <tbody>
-                                                <tr>
-                                                    <td align="center" valign="top"
-                                                        class="px-1 transition-all hover:scale-105">
-                                                        <a target="_blank"
-                                                            href="https://github.com/maheshbasnet089/tapShare"><img
-                                                                class="mix-blend-multiply transition-all dark:mix-blend-overlay"
-                                                                src="https://github.com/fluidicon.png" alt="GITHUB"
-                                                                title="Github" height="42" width="42" /></a>
-                                                    </td>
-                                                    <td align="center" valign="top"
-                                                        class="px-1 transition-all hover:scale-105">
-                                                        <a target="_blank"
-                                                            href="https://www.linkedin.com/company/tapshare089/"><img
-                                                                class="mix-blend-multiply transition-all dark:mix-blend-soft-light"
-                                                                src="https://static.licdn.com/aero-v1/sc/h/90y3av2ns08iojcadywbxioqh"
-                                                                alt="FB" title="Facebook" height="42" width="42" /></a>
-                                                    </td>
-                                                    <td align="center" valign="top"
-                                                        class="px-1 transition-all hover:scale-105">
-                                                        <a target="_blank"
-                                                            href="https://www.facebook.com/tapshare089"><img
-                                                                class="mix-blend-multiply transition-all dark:mix-blend-overlay"
-                                                                src="https://static.xx.fbcdn.net/rsrc.php/yT/r/aGT3gskzWBf.ico?_nc_eui2=AeGmGvcMjiut5c2dVKunAYAdrSiY817De8atKJjzXsN7xgKtvsAOG8FqlfMVqgX0lNz6wFBfTtTMpzkiRtw05193"
-                                                                alt="Ig" title="Instagram" height="42" width="42" /></a>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div style="margin: 20px 0;">
-                                        Best regards,<br />
-                                        <p class="pb-1 pt-2 font-mono font-bold">Tej karki</p>
-                                        <p class="pb-1 font-serif">maintainer</p>
-                                        <a target="_blank"
-                                            href="https://github.com/maheshbasnet089/tapShare?tab=readme-ov-file#contributors-"
-                                            class="font-serif text-blue-500 transition-all hover:underline dark:text-blue-200">Tapshare
-                                            Team</a>
-                                    </div>
+                            <br />
+                            <p style="margin: 0;" class="c-slate-100 z-10 text-center">Thank you for choosing Tapshare
+                                for your file sharing needs. Should you have any questions or require assistance, please
+                                don't hesitate to reach out to us.</p>
+                            <div align="center" class="mt-3">
+                                <table cellpadding="0" cellspacing="0">
+                                    <tbody>
+                                        <tr>
+                                            <td align="center" valign="top" class="hover-scale-105 px-1 transition-all">
+                                                <a target="_blank"
+                                                    href="https://github.com/maheshbasnet089/tapShare"><img
+                                                        class="mix-blend-overlay transition-all"
+                                                        src="https://github.com/fluidicon.png" alt="GITHUB"
+                                                        title="Github" height="42" width="42" /></a>
+                                            </td>
+                                            <td align="center" valign="top" class="hover-scale-105 px-1 transition-all">
+                                                <a target="_blank"
+                                                    href="https://www.linkedin.com/company/tapshare089/"><img
+                                                        class="mix-blend-soft-light transition-all"
+                                                        src="https://static.licdn.com/aero-v1/sc/h/90y3av2ns08iojcadywbxioqh"
+                                                        alt="LIN" title="Linkedin" height="42" width="42" /></a>
+                                            </td>
+                                            <td align="center" valign="top" class="hover-scale-105 px-1 transition-all">
+                                                <a target="_blank" href="https://www.facebook.com/tapshare089"><img
+                                                        class="mix-blend-overlay transition-all"
+                                                        src="https://static.xx.fbcdn.net/rsrc.php/yT/r/aGT3gskzWBf.ico?_nc_eui2=AeGmGvcMjiut5c2dVKunAYAdrSiY817De8atKJjzXsN7xgKtvsAOG8FqlfMVqgX0lNz6wFBfTtTMpzkiRtw05193"
+                                                        alt="FB" title="Facebook" height="42" width="42" /></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div style="margin: 20px 0;">
+                                <p class="pb-1">Best regards,</p>
+                                <p class="pt-2 font-mono font-bold">Tej karki</p>
+                                <p class="pb-1 font-serif">maintainer</p>
+                                <a target="_blank"
+                                    href="https://github.com/maheshbasnet089/tapShare?tab=readme-ov-file#contributors-"
+                                    class="hover-underline font-serif c-blue-200 transition-all">Tapshare Team</a>
+                            </div>
                         </td>
                     </tr>
                 </table>

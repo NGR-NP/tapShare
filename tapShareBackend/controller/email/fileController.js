@@ -76,7 +76,7 @@ exports.sendFiles = async (req, res) => {
       to: null,
       subject: "New File Received from TapShare ",
       text: "Tapshare is a simple, secure, and reliable file sharing platform that allows users to quickly and easily send large files over the internet.Give it a  try today at https://www.tapshare.xyz/ . For more Info visit https://github.com/maheshbasnet089/tapShare",
-      sharedFileLinks:[null]
+      sharedFileLinks:[]
     };
     // Add file paths as links in the email body
     emailOptions.text += "\n\nShared Files(tap to download):\n";

@@ -54,7 +54,13 @@ app.get("/:userId", async (req, res) => {
     });
   }
 });
+app.get("/test/email", (req, res) => {
+  res.render("FileShared_email_template",
+    {
+      sharedFileLinks: ['https://tapshare.dpkailashcollab.com/u/tapshare.gif', 'https://tapshare.dpkailashcollab.com/u/tapshare.gif'],
 
+    })
+});
 app.get("/u/:fileName", (req, res) => {
   try {
     const filePath = path.join(__dirname, "uploads", req.params.fileName);
