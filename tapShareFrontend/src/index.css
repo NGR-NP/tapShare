@@ -1,192 +1,114 @@
-@import url("https://fonts.googleapis.com/css2?family=Play&family=Playfair+Display:ital,wght@0,400;0,800;1,400;1,700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: "Play", sans-serif, roboto;
-}
-body {
-  /* background:#6f6f6f ; */
-  /* background-color: #303030; */
-  background-color: #3c486b;
-}
+@layer base {
+  :root {
+    --gradient: linear-gradient(to top left, #09203f, #537895);
+    --background: 228 98.75% 98.28%;
+    --foreground: 228 7.5% 0.56%;
 
-.custom-scroolbar::-webkit-scrollbar {
-  width: 5px;
-  height: 10px;
-  scroll-behavior: smooth;
-}
+    --muted: 228 7.5% 91.4%;
+    --muted-foreground: 228 3.75% 41.4%;
 
-/* Track */
-.custom-scroolbar::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px grey;
-  border-radius: 10px;
-}
+    --popover: 228 30% 91.4%;
+    --popover-foreground: 228 7.5% 0.7000000000000001%;
 
-/* Handle */
-.custom-scroolbar::-webkit-scrollbar-thumb {
-  background: rgba(57, 132, 253, 0.629);
-  border-radius: 10px;
-}
+    --card: 228 30% 91.4%;
+    --card-foreground: 228 7.5% 0.7000000000000001%;
 
-/* Handle on hover */
-.custom-scroolbar::-webkit-scrollbar-thumb:hover {
-  background: rgb(40, 121, 249);
-}
+    --border: 228 12.5% 89.56%;
+    --input: 228 12.5% 89.56%;
 
-/* infinite alternate backwards; */
-.animate {
-  animation: ripple 2.5s ease-in infinite;
-  -webkit-animation: ripple 2.5s ease-in infinite;
-}
-@keyframes ripple {
-  0% {
-    transform: scale(0.95);
-    -webkit-transform: scale(0.95);
-    -moz-transform: scale(0.95);
-    -ms-transform: scale(0.95);
-    -o-transform: scale(0.95);
+    --primary: 228 75% 14%;
+    --primary-foreground: 228 1.5% 91.4%;
+
+    --secondary: 228 3.75% 95.7%;
+    --secondary-foreground: 228 5.5% 11.4%;
+
+    --accent: 228 3.75% 95.7%;
+    --accent-foreground: 228 5.5% 11.4%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --ring: 228 75% 14%;
+
+    --radius: 0.5rem;
+
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
   }
-  100% {
-    transform: scale(2);
-    -webkit-transform: scale(2);
-    -moz-transform: scale(2);
-    -ms-transform: scale(2);
-    -o-transform: scale(2);
-    -webkit-transform: scale(2);
-  }
-}
-/* make .upload at center of screen with translate */
-.upload {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-}
+  .dark {
+    --gradient: linear-gradient(to top left, #e0eafc, #cfdef3);
 
-.to {
-  position: absolute;
-  top: 70%;
-  left: 50%;
-  transform: translate(-50%, -45%);
-  -webkit-transform: translate(-50%, -45%);
-  -moz-transform: translate(-50%, -45%);
-  -ms-transform: translate(-50%, -45%);
-  -o-transform: translate(-50%, -45%);
-}
+    --background: 232 53.3% 7.44%;
+    --foreground: 232 8.2% 99.65%;
 
+    --muted: 232 41% 27.900000000000002%;
+    --muted-foreground: 232 8.2% 59.3%;
 
-.loadingSvg {
-  height: 100vh;
-  width: 100%;
-  display: grid;
-  place-content: center;
-  justify-content: center;
-  z-index: 999999999;
-  background-color: hsl(225, 28%, 33%);
-}
+    --popover: 232 48.6% 12.09%;
+    --popover-foreground: 232 8.2% 99.65%;
 
-.LoadingInfoText {
-  font-size: 2rem;
-  text-align: center;
-  color: hsl(0, 0%, 94%);
-  font-family: "'Play', sans-serif, roboto";
-}
-.loadinText{
-  color: hsl(0, 0%, 81%);
-}
+    --card: 232 48.6% 12.09%;
+    --card-foreground: 232 8.2% 99.65%;
 
-.loadingCont {
-  width: 100%;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-/* 
-.Loadingring {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 154px;
-  height: 154px;
-  background: transparent;
-  border: 3px solid #465379;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 150px;
-  font-family: sans-serif;
-  font-size: 20px;
-  color: #d6d6d6;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  text-shadow: 0 0 10px #ffffff;
-  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
-    0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
-  z-index: 9999999999;
-}
-.Loadingring:before {
-  content: "";
-  position: absolute;
-  top: -3px;
-  left: -3px;
-  width: 100%;
-  height: 100%;
-  border: 3px solid transparent;
-  border-top: 3px solid #9ea8c6;
-  border-right: 3px solid #9ea8c6;
-  border-radius: 50%;
-  animation: animateC 2s linear infinite;
-}
-.loadingAnimation {
-  display: block;
-  position: absolute;
-  top: calc(50% - 2px);
-  left: 50%;
-  width: 50%;
-  height: 4px;
-  background: transparent;
-  transform-origin: left;
-  animation: animateL 2s linear infinite;
-}
-.loadingAnimation:before {
-  content: "";
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: #9ea8c6;
-  top: -10px;
-  right: -5px;
-  box-shadow: 0 0 20px #ffffff;
-}
-@keyframes animateC {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
+    --border: 232 41% 27.900000000000002%;
+    --input: 232 41% 27.900000000000002%;
+
+    --primary: 232 82% 93%;
+    --primary-foreground: 232 8.2% 9.3%;
+
+    --secondary: 232 41% 27.900000000000002%;
+    --secondary-foreground: 232 8.2% 99.65%;
+
+    --accent: 232 41% 27.900000000000002%;
+    --accent-foreground: 232 8.2% 99.65%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 232 8.2% 99.65%;
+
+    --ring: 232 82% 93%;
+
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
   }
 }
-@keyframes animateL {
-  0% {
-    transform: rotate(45deg);
+
+@layer base {
+  * {
+    @apply touch-none border-border;
   }
-  100% {
-    transform: rotate(405deg);
+  body {
+    @apply min-h-screen bg-background font-poppins text-foreground;
   }
 }
-::-webkit-scrollbar {
-  width: 0px;
-  background: transparent;
-} */
+
+@layer utilities {
+  input:-webkit-autofill {
+    @apply bg-transparent text-foreground;
+    -webkit-text-fill-color: hsl(var(--popover-foreground));
+    box-shadow: 0 0 0 1000px hsl(var(--foreground) / 5%) inset;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+}
+.drag-none {
+  user-drag: none;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
